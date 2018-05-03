@@ -1,0 +1,15 @@
+'use strict';
+module.exports = function(app) {
+  var cmd = require('../controllers/apic-cmd.js');
+
+  // cmd Routes
+  app.route('/apic/login')
+  // ?username=user&password=pass&server=mgmt.com
+    .get(cmd.login)
+
+
+  app.route('/apic/apisset/:object')
+  //?status=offline/online
+    .get(cmd.apis_set)
+
+};
